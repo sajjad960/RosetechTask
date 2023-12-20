@@ -24,11 +24,13 @@ Then visit the `Local` link from the terminal, it should look like this `http://
 
 #### Task Description
 
-1. DashBard
+1. Dashboard
     - NavBar (Views/NavBar.tsx)
-    - SideBar(Views/SideBar.tsx)
+    - SideBar (Views/SideBar.tsx)
     - MainContent (Views/MainContent)
     - Footer (Views/Footer.tsx)
 2. Simple auth (just mock)
     - I just maked `Edit Proile` and `Edit Student Table Data` button clickable if `{ auth: ‘nfh6fgaWdj’ }` cookie available.
     - For test need to insert the Cookie into the Cookie Storage.
+
+## Backend
