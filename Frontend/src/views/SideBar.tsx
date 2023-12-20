@@ -28,7 +28,7 @@ const Sidebar = () => {
 
   return (
     <Container fluid>
-      <Row className="vh-100">
+      <Row className="h-100 min-vh-100">
         {/* Sidebar */}
         <Col md={3} className="bg-light  pt-4  sidebar">
           <Nav className="flex-column">

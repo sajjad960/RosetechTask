@@ -28,7 +28,7 @@ const StudentTable: React.FC<StudentTableProps> = ({ students }) => {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="">
           {students?.map((student) => (
             <tr key={student.id}>
               <td>{student.name}</td>
