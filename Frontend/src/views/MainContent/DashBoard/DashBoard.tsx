@@ -18,7 +18,7 @@ const DashboardContent = () => {
   const { data, loading } = useCustomFetch(useApiConfig);
 
   useEffect(() => {
-    setstudents(data)
+    setstudents(data?.data?.data)
   }, [data])
   // Get Data And Set Into State END
   

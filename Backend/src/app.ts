@@ -17,6 +17,8 @@ import globalErrorHandler from "./controllers/errorController";
 app.use(
   cors({
     origin: "*",
+    credentials: true,
+
   })
 );
 // Parse Body And Cookie

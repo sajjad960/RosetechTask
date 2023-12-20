@@ -20,11 +20,10 @@ const Students = () => {
   const { data, loading } = useCustomFetch(useApiConfig);
 
   useEffect(() => {
-    setStudents(data);
+    setStudents(data?.data?.data);
   }, [data]);
   // Get Data And Set Into State END
 
-  const handleAddStudent = () => {};
 
   const handleSearchStudents = (searchTerm: string) => {
     const filteredStudents = students?.filter((student) =>
@@ -42,7 +41,7 @@ const Students = () => {
       </h3>
       <Row>
         <Col md={6}>
-          <AddStudentForm onSubmit={handleAddStudent} />
+          <AddStudentForm />
         </Col>
       </Row>
 
