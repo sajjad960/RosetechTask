@@ -1,17 +1,13 @@
 import { Card, Container, Row, Col } from "react-bootstrap";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useCustomFetch } from "../../../hooks/Api/useCustomFetch";
-
-
-
-export interface Students {
-  id: string;
-  name: string;
-  gender: string;
-}
+import { StudentProps } from "../Common/types";
 
 
 const DashboardContent = () => {
+  const [students, setstudents] = useState<StudentProps[]>();
+
+  // Get Data And Set Into State START
   const useApiConfig = useMemo(() => {
     return {
       url: "http://127.0.0.1:5005/api/v1/students",
@@ -19,25 +15,31 @@ const DashboardContent = () => {
     };
   }, []);
 
-  const { data, loading, error } = useCustomFetch(useApiConfig);
+  const { data, loading } = useCustomFetch(useApiConfig);
+
+  useEffect(() => {
+    setstudents(data)
+  }, [data])
+  // Get Data And Set Into State END
+  
 
 
   const cardData = [
     {
       title: "Total Students",
-      data: data?.reduce((acc) => acc + 1, 0),
+      data: students?.reduce((acc) => acc + 1, 0),
       style: "bg-primary text-white",
     },
     {
       title: "Total Male Students",
-      data: data
+      data: students
         ?.filter((student) => student?.gender === "male")
         .reduce((acc) => acc + 1, 0),
       style: "bg-light text-black",
     },
     {
       title: "Total Female Students",
-      data: data
+      data: students
         ?.filter((student) => student?.gender === "female")
         .reduce((acc) => acc + 1, 0),
       style: "bg-light text-black",
@@ -45,9 +47,6 @@ const DashboardContent = () => {
   ];
 
  
-  if (error) {
-    console.log(error);
-  }
 
   return (
     <Container fluid>

@@ -1,12 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-export interface Students {
-  id: string;
-  name: string;
-  gender: string;
-}
-
 interface fetchProps {
   url: string,
   options: object
@@ -14,9 +8,8 @@ interface fetchProps {
 
 export const useCustomFetch = (fetchOptions: fetchProps) => {
   const {url, options} = fetchOptions;
-  const [data, setData] = useState<Students[]>();
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string>();
 
   const fetchData = useCallback(async () => {
     try {
@@ -32,7 +25,7 @@ export const useCustomFetch = (fetchOptions: fetchProps) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       // Handle the error if needed
-      setError(error?.message);
+      console.log(error)
     } finally {
       // Do cleanup or finalization if needed
       setLoading(false);
@@ -46,5 +39,5 @@ export const useCustomFetch = (fetchOptions: fetchProps) => {
     };
   }, [fetchData]);
 
-  return { data, loading, error };
+  return { data, loading };
 };

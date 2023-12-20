@@ -1,11 +1,11 @@
 import React from "react";
 import { Table, Button } from "react-bootstrap";
-import { Student } from "./common/types";
 import { isAuthCookieAvailable } from "../../../../utils/cookie";
 import { toast } from "react-toastify";
+import { StudentProps } from "../../Common/types";
 
 interface StudentTableProps {
-  students: Student[];
+  students: StudentProps[];
 }
 
 const StudentTable: React.FC<StudentTableProps> = ({ students }) => {
@@ -29,7 +29,7 @@ const StudentTable: React.FC<StudentTableProps> = ({ students }) => {
           </tr>
         </thead>
         <tbody>
-          {students.map((student) => (
+          {students?.map((student) => (
             <tr key={student.id}>
               <td>{student.name}</td>
               <td>{student.id}</td>
