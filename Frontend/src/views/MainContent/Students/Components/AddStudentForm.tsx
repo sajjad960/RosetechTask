@@ -34,6 +34,7 @@ const AddStudentForm = () => {
     };
   }, [formData]);
 
+  // Prevent first render call with sending false value as a second arguments
   const { execute } = useCustomFetch(useApiConfig, false);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
