@@ -1,5 +1,6 @@
 import Footer from "../Footer";
 import NavBar from "../NavBar";
+import ScrollToTop from "../ScrollToTop";
 import SideBar from "../SideBar";
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
       <NavBar />
       <SideBar />
       <Footer author="Sajjad Hossain" startYear={2023} />
+      <ScrollToTop/>
     </>
   );
 };
