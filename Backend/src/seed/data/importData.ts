@@ -24,7 +24,7 @@ const pool = mysql.createPool({
 // Acquire a connection from the pool
 pool.getConnection((err, connection) => {
     if (err) throw err;
-  
+   
     // Create and use the database
     connection.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME}`, (err) => {
       if (err) throw err;
