@@ -24,15 +24,15 @@ const Students = () => {
   }, [data]);
   // Get Data And Set Into State END
 
-
   const handleSearchStudents = (searchTerm: string) => {
     const filteredStudents = students?.filter((student) =>
       student.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setStudents(filteredStudents);
+    if (searchTerm === "") {
+      setStudents(data?.data?.data);
+    }
   };
-
- 
 
   return (
     <Container fluid>
