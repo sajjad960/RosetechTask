@@ -124,3 +124,5 @@ Local address of the app will be `http://127.0.0.1:5005` , if you used my env po
 2. Sync Student Data (Used Typescript for making the data typed.)
 3. Git push, merge, rebase (Pushed into github and merged another branch.)
 4. Add ‘scroll to top’ in frontend (/Frontend/src/views/ScrollToTop.tsx)
+
+Note: 👉 For geting backend data into frontend, you have to run both (frontend,backend) same time.
