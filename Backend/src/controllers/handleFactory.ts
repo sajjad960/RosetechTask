@@ -36,7 +36,6 @@ const getAll = (Model: any) =>
       query.attributes = { exclude: selectedFields };
     }
     function paginate() {
-      console.log();
       let limit: number = Number(req.query.limit) || null;
       const page: number = Number(req.query.page) || 1;
       let offset = 0 + (page - 1) * limit;

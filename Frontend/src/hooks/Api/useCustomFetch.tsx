@@ -19,9 +19,7 @@ export const useCustomFetch = (
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-      console.log(result);
 
-      console.log("rending", url);
       if (!response.ok) {
         toast.error("Fetch Fail, Something went wrong");
       }
