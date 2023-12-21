@@ -1,30 +1,39 @@
-# React + TypeScript + Vite
+## Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+More about frontend task
 
-Currently, two official plugins are available:
+### Technology used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Nodejs (version - v16.20.1)
+- React.js (version - 18.2.0) + Vite
+- Typescript, Bootstrap
 
-## Expanding the ESLint configuration
+### Installation and Run
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+npm i
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Then visit the `Local` link from the terminal, it should look like this `http://127.0.0.1:5173/`
+
+#### Task Description
+
+1. Dashboard
+   - NavBar (Views/NavBar.tsx)
+   - SideBar (Views/SideBar.tsx)
+   - MainContent (Views/MainContent)
+   - Footer (Views/Footer.tsx)
+2. Simple auth (just mock)
+   - I just maked `Edit Proile` and `Edit Student Table Data` button clickable if `{ auth: ‘nfh6fgaWdj’ }` cookie available.
+   - For test need to insert the Cookie into the Cookie Storage.
+
+## Full Stack
+
+#### Task Description
+1. Custom UseFetch Hook (/Frontend/src/hooks/Api/useCustomFetch.tsx)
+2. Sync Student Data (Used Typescript for making the data typed.)
+3. Git push, merge, rebase (Pushed into github and merged another branch.)
+4. Add ‘scroll to top’ in frontend (/Frontend/src/views/ScrollToTop.tsx)
+
+Note: 👉 For geting backend data into frontend, you have to run both (frontend,backend) same time.
