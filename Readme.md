@@ -14,7 +14,7 @@ Frontend Folder Location (/Frontend).
 - React.js (version - 18.2.0) + Vite
 - Typescript, Bootstrap
 
-### Inatallation and Run
+### Installation and Run
 
 ```bash
 npm i
@@ -40,11 +40,12 @@ Backend Folder Location (/Backend).
 
 ### Technology used
 
-- Nodejs (version - v16.20.1)-Express.js
+- Nodejs (version - v16.20.1)- Express.js
 - 11.1.2-MariaDB Arch Linux, If you have mySql server installed, you are ok.
+- ORM-Sequlizer
 - Typescript
 
-### Inatallation and Run
+### Installation and Run
 
 1.  Install npm packages:
 
@@ -117,7 +118,7 @@ Local address of the app will be `http://127.0.0.1:5005` , if you used my env po
     - pass `{ auth: ‘nfh6fgaWdj’ }` as cookies.
 
 ## Full Stack
- 
+
 #### Task Description
 1. Custom UseFetch Hook (/Frontend/src/hooks/Api/useCustomFetch.tsx)
 2. Sync Student Data (Used Typescript for making the data typed.)
