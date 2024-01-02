@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import AddStudentForm from "./Components/AddStudentForm";
 import SearchStudentsForm from "./Components/SearchStudentsForm";
@@ -7,7 +7,10 @@ import { useCustomFetch } from "../../../hooks/Api/useCustomFetch";
 import { StudentProps } from "../Common/types";
 
 const Students = () => {
-  const [students, setStudents] = useState<StudentProps[]>();
+  const [students, setStudents] = useState<StudentProps[]>([]);
+  const [filteredStudents, setfilteredStudents] = useState<StudentProps[]>();
+  const [searchTerm, setSearchTerm] = useState('');
+
 
   // Get Data And Set Into State START
   const useApiConfig = useMemo(() => {
@@ -24,15 +27,49 @@ const Students = () => {
   }, [data]);
   // Get Data And Set Into State END
 
-  const handleSearchStudents = (searchTerm: string) => {
-    const filteredStudents = students?.filter((student) =>
-      student.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setStudents(filteredStudents);
-    if (searchTerm === "") {
-      setStudents(data?.data?.data);
-    }
-  };
+  // const handleSearchStudents = (searchTerm: string) => {
+  //   const filteredStudents = students?.filter((student) =>
+  //     student.name.toLowerCase().includes(searchTerm.toLowerCase())
+  //   );
+  //   setStudents(filteredStudents);
+  //   if (searchTerm === "") {
+  //     setStudents(data?.data?.data);
+  //   }
+  // };
+
+  
+
+
+  const handleSearchStudents = useCallback(
+    (searchTerm: string) => {
+      const filteredStudents = students?.filter((student) =>
+        student.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setStudents(filteredStudents);
+      if (searchTerm === "") {
+        setStudents(data?.data?.data);
+      }
+    },
+    [data?.data?.data, students],
+  )
+  
+  // useEffect(() => {
+  //  handleSearchStudents(searchTerm)
+  // }, [searchTerm])
+  
+
+  const MemoistSearchStudents =  useMemo(() => {
+      return students?.filter((student) =>
+        student.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }, [searchTerm, students]);
+
+    useEffect(() => {
+      setfilteredStudents(MemoistSearchStudents)
+    }, [MemoistSearchStudents])
+    
+
+    console.log(MemoistSearchStudents)
 
   return (
     <Container fluid>
@@ -47,7 +84,7 @@ const Students = () => {
 
       <Row className="mt-3 ">
         <Col md={6}>
-          <SearchStudentsForm onSearch={handleSearchStudents} />
+          <SearchStudentsForm searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </Col>
       </Row>
 
@@ -56,7 +93,7 @@ const Students = () => {
           {loading ? (
             <h4>Loading...</h4>
           ) : (
-            <StudentTable students={students || []} />
+            <StudentTable students={filteredStudents ? filteredStudents : students} />
           )}
         </Col>
       </Row>

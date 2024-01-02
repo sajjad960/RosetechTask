@@ -1,16 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button, Col, Row } from 'react-bootstrap';
+import { memo } from 'react';
+
 
 interface SearchStudentsFormProps {
-  onSearch: (searchTerm: string) => void;
+  searchTerm: string,
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>
 }
 
-const SearchStudentsForm: React.FC<SearchStudentsFormProps> = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+const SearchStudentsForm: React.FC<SearchStudentsFormProps> = ({ searchTerm, setSearchTerm}) => {
+  // const [searchTerm, setSearchTerm] = useState('');
 
-  const handleSearch = () => {
-    onSearch(searchTerm);
-  };
+  // const handleSearch = () => {
+  //   onSearch(searchTerm);
+  // };
+
+  // useEffect(() => {
+  //   onSearch(searchTerm)
+  // }, [searchTerm])
+  
 
   return (
     <Form.Group controlId="formSearch">
@@ -25,9 +33,9 @@ const SearchStudentsForm: React.FC<SearchStudentsFormProps> = ({ onSearch }) => 
           />
         </Col>
         <Col>
-          <Button variant="primary" onClick={handleSearch}>
+          {/* <Button variant="primary" onClick={handleSearch}>
             Search
-          </Button>
+          </Button> */}
         </Col>
       </Row>
     </Form.Group>
