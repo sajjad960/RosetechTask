@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Form, Button, Col, Row } from 'react-bootstrap';
-import { memo } from 'react';
+import React from 'react';
+import { Form, Col, Row } from 'react-bootstrap';
 
 
 interface SearchStudentsFormProps {
@@ -9,16 +8,6 @@ interface SearchStudentsFormProps {
 }
 
 const SearchStudentsForm: React.FC<SearchStudentsFormProps> = ({ searchTerm, setSearchTerm}) => {
-  // const [searchTerm, setSearchTerm] = useState('');
-
-  // const handleSearch = () => {
-  //   onSearch(searchTerm);
-  // };
-
-  // useEffect(() => {
-  //   onSearch(searchTerm)
-  // }, [searchTerm])
-  
 
   return (
     <Form.Group controlId="formSearch">

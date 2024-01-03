@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import AddStudentForm from "./Components/AddStudentForm";
 import SearchStudentsForm from "./Components/SearchStudentsForm";
@@ -25,37 +25,7 @@ const Students = () => {
   useEffect(() => {
     setStudents(data?.data?.data);
   }, [data]);
-  // Get Data And Set Into State END
-
-  // const handleSearchStudents = (searchTerm: string) => {
-  //   const filteredStudents = students?.filter((student) =>
-  //     student.name.toLowerCase().includes(searchTerm.toLowerCase())
-  //   );
-  //   setStudents(filteredStudents);
-  //   if (searchTerm === "") {
-  //     setStudents(data?.data?.data);
-  //   }
-  // };
-
-  
-
-
-  const handleSearchStudents = useCallback(
-    (searchTerm: string) => {
-      const filteredStudents = students?.filter((student) =>
-        student.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setStudents(filteredStudents);
-      if (searchTerm === "") {
-        setStudents(data?.data?.data);
-      }
-    },
-    [data?.data?.data, students],
-  )
-  
-  // useEffect(() => {
-  //  handleSearchStudents(searchTerm)
-  // }, [searchTerm])
+    // Get Data And Set Into State END
   
 
   const MemoistSearchStudents =  useMemo(() => {
@@ -68,8 +38,6 @@ const Students = () => {
       setfilteredStudents(MemoistSearchStudents)
     }, [MemoistSearchStudents])
     
-
-    console.log(MemoistSearchStudents)
 
   return (
     <Container fluid>
